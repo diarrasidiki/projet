@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% form_theme formAdd 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+    
+    {{ form_start(formAdd) }}
+
+        {{ form_row(formAdd.title,{'label':"Titre",'attr':{'placeholder':"Title Post..."}}) }}
+        {{ form_row(formAdd.content,{'label':"Contenu",'attr':{'placeholder':"Content Post..."}}) }}
+        {{ form_row(formAdd.duration,{'label':"La Durée en heure ",'attr':{'placeholder':"Duration Post..."}}) }}
+        {{ form_row(formAdd.price,{'label':"Prix en euros",'attr':{'placeholder':"Price Post..."}}) }}
+        {{ form_row(formAdd.video,{'label':"Url Video",'attr':{'placeholder':"Url video Post..."}}) }}
+        {{ form_row(formAdd.category,{'label':"La Categorie"}) }}
+        {{ form_row(formAdd.media,{'label':"Url image"}) }}
+        {{ form_row(formAdd.status,{'label':"Le status"}) }}
+        
+        <button type="submit" class="btn btn-primary">
+           {% if editMode %}
+                Update Post !
+           {% else %}
+                 Add Post !
+            {% endif %}
+        </button>
+    {{ form_end(formAdd) }}
+{% endblock %}

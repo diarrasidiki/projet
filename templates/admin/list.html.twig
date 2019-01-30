@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="row">
+         <div class="col-6">
+           
+         </div>
+         <div class="col-6">
+            <a href="{{ path('admin_addUpdate') }}" class="btn btn-primary">Ajouter POST</a>
+         </div>
+   </div>
+    <table cellspacing="0" cellpadding="1" class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Modification</th>
+             <th>Suppression</th>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td>{{post.id}}</td>
+            <td>{{post.title}}</td>
+            <td><a href="{{ path('admin_addUpdateEdit',{'id':post.id}) }}">Modification</a></td>
+            <td><a href="{{ path('admin_delete',{'id':post.id}) }}">Suppression</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

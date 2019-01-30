@@ -1,0 +1,21 @@
+{# heritier du template de base  #}
+{% extends 'base.html.twig' %}
+{# ettendre le block body #}
+{% block body %}
+    <h1>Accueil</h1>
+    <h1>Liste des posts</h1>
+    {% for post in posts %}
+        <article >
+            <div class="row">
+                <div class="col-6">
+                    <img src="{{ post.video }}" alt="" style="width:500px">
+                </div>
+                <div class="col">
+                    <h2>{{post.title}}</h2>
+                    {{ post.content | raw }}
+                   <a href="{{ path('python_show',{'id':post.id}) }}" class="btn btn-primary">Lire la suite</a>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}

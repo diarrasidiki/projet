@@ -1,0 +1,23 @@
+{# heritier du template de base  #}
+{% extends 'base.html.twig' %}
+{# ettendre le block body #}
+{% block body %}
+    <h1>Description</h1>
+    <article >
+        <h2>{{post.title}}</h2>
+        <p >Publié le <span style="color:red">{{ post.createdAt | date('d/m/Y à H:i') }}</span> Prix {{ post.price }} euros Durée<span style="color:red"> {{ post.duration  }}</span> heure(s)</p>
+     <img src="{{ post.video}}" alt="">
+       {{ post.content | raw }}
+       <hr>
+       <p><mark style="color:red">Categorie :</mark>{{ post.category.tag }} <span style="color:red">Status </span> : 
+            {% if post.status == 1 %}
+                Actif
+            {% else %}
+                Desactif
+            {% endif %}
+        
+        </p>
+       
+    </article>
+
+{% endblock %}
